@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shreeshail Sangolge · Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080810;
+    --bg2: #0e0e1a;
+    --accent: #7c3aed;
+    --accent2: #a855f7;
+    --accent3: #06b6d4;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --glow: rgba(124,58,237,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+  /* PARTICLES */
+  #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,16,0.75);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+  .logo{font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.05em;}
+  .logo span{color:var(--accent2);}
+  .nav-links{display:flex;gap:.6rem;align-items:center;}
+  .nav-links a{font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.5rem 1.1rem;border-radius:999px;border:1px solid transparent;transition:all .25s;}
+  .nav-links a:hover{color:#fff;border-color:var(--border);background:rgba(255,255,255,.05);}
+  .nav-links a.active{color:#fff;background:var(--accent);border-color:var(--accent);}
+
+  section{position:relative;z-index:1;}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:8rem 3rem 4rem;text-align:center;}
+  .hero-avatar{display:flex;justify-content:center;margin-bottom:2rem;}
+  .hero-avatar img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(124,58,237,.6);box-shadow:0 0 20px rgba(124,58,237,.5),0 0 60px rgba(124,58,237,.25);transition:.4s;}
+  .hero-avatar img:hover{transform:scale(1.08);box-shadow:0 0 30px rgba(168,85,247,.7),0 0 80px rgba(168,85,247,.4);}
+  .hero-inner{max-width:780px;}
+  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);border-radius:999px;padding:.4rem 1rem;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.8rem;}
+  .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.7);}}
+  .hero h1{font-size:clamp(3rem,8vw,6rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.2rem;}
+  .hero h1 .name-grad{background:linear-gradient(135deg,#fff 30%,var(--accent2) 70%,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero-sub{font-family:'Space Mono',monospace;font-size:.9rem;color:var(--accent3);letter-spacing:.15em;margin-bottom:1.4rem;}
+  .hero-desc{font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:520px;margin:0 auto 2.5rem;}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:999px;font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.06em;text-decoration:none;cursor:pointer;border:none;transition:all .28s cubic-bezier(.34,1.56,.64,1);}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 0 24px rgba(124,58,237,.4);}
+  .btn-primary:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 0 36px rgba(124,58,237,.6);}
+  .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border);}
+  .btn-outline:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-2px) scale(1.04);}
+  .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);animation:floatY 2.5s ease-in-out infinite;}
+  .scroll-hint .bar{width:1.5px;height:36px;background:linear-gradient(to bottom,var(--accent2),transparent);border-radius:999px;}
+  @keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+  /* SECTION COMMON */
+  .section-label{display:inline-block;font-family:'Space Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:.8rem;}
+  .section-title{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1rem;}
+  .section-wrapper{max-width:1100px;margin:0 auto;padding:6rem 3rem;}
+
+  /* WHAT I DO */
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all .3s;position:relative;overflow:hidden;}
+  .card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,var(--glow),transparent 70%);opacity:0;transition:opacity .4s;}
+  .card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.35);}
+  .card:hover::before{opacity:1;}
+  .card-icon{width:50px;height:50px;background:rgba(124,58,237,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem;}
+  .card h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem;}
+  .card p{font-size:.88rem;color:var(--muted);line-height:1.65;}
+
+  /* SKILLS */
+  .skills-section{padding:5rem 0;overflow:hidden;}
+  .skills-header-wrap{max-width:1100px;margin:0 auto;padding:0 3rem 2.5rem;}
+  .skills-container{width:100%;overflow:hidden;position:relative;}
+  .skills-container::before,.skills-container::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+  .skills-container::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+  .skills-container::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+  .skills-track{display:flex;gap:1.2rem;width:max-content;animation:scrollLeft 35s linear infinite;}
+  @keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  .skill-card{min-width:120px;padding:1.4rem 1rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;gap:.7rem;cursor:default;transition:border-color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden;}
+  .skill-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(6,182,212,.12),transparent 70%);opacity:0;transition:opacity .3s;}
+  .skill-card:hover{border-color:rgba(6,182,212,.4);box-shadow:0 8px 32px rgba(6,182,212,.12);transform:translateY(-6px);}
+  .skill-card:hover::before{opacity:1;}
+  .skill-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;}
+  .skill-icon svg{width:100%;height:100%;}
+  .skill-name{font-size:.75rem;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;text-align:center;}
+  .skill-card:hover .skill-name{color:var(--accent3);}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;}
+  .proj-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all .35s;cursor:pointer;}
+  .proj-card:hover{transform:translateY(-6px);border-color:rgba(6,182,212,.4);box-shadow:0 16px 48px rgba(6,182,212,.1);}
+  .proj-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.1));position:relative;overflow:hidden;}
+  .proj-thumb .proj-overlay{position:absolute;inset:0;background:rgba(8,8,16,.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;gap:1rem;}
+  .proj-card:hover .proj-overlay{opacity:1;}
+  .proj-overlay a{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;transition:.2s;}
+  .proj-overlay a.demo{background:var(--accent2);color:#fff;}
+  .proj-overlay a.code{background:transparent;border:1.5px solid rgba(255,255,255,.3);color:#fff;}
+  .proj-overlay a:hover{transform:scale(1.06);}
+  .proj-body{padding:1.4rem;}
+  .proj-body h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+  .proj-body p{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;}
+  .tag{font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.1em;padding:.25rem .65rem;border-radius:999px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.2);color:var(--accent2);}
+  .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;margin-top:3rem;}
+  .stat-box{text-align:center;padding:2rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:20px;transition:.3s;}
+  .stat-box:hover{border-color:rgba(168,85,247,.4);transform:translateY(-3px);}
+  .stat-box .num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.4rem;}
+  .stat-box .label{font-size:.8rem;color:var(--muted);font-weight:600;letter-spacing:.06em;}
+
+  /* PROJECT MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;}
+  .modal-overlay.open{opacity:1;pointer-events:all;}
+  .modal{background:#0f0f1e;border:1px solid rgba(168,85,247,.3);border-radius:24px;padding:2.5rem;max-width:600px;width:90%;transform:scale(.9);transition:.3s;position:relative;}
+  .modal-overlay.open .modal{transform:scale(1);}
+  .modal-close{position:absolute;top:1.2rem;right:1.2rem;background:rgba(255,255,255,.07);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .modal-close:hover{background:rgba(255,255,255,.15);}
+  .modal-emoji{font-size:3rem;margin-bottom:1rem;}
+  .modal h3{font-size:1.5rem;font-weight:800;margin-bottom:.8rem;}
+  .modal p{color:var(--muted);line-height:1.7;margin-bottom:1.5rem;}
+  .modal-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
+  .modal-links{display:flex;gap:.8rem;}
+
+  /* ═══════════════════════════════════════
+     CONTACT SECTION — NEW
+  ═══════════════════════════════════════ */
+  .contact-layout {
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:2.5rem;
+    align-items:start;
+    margin-top:3rem;
+  }
+
+  /* Left: social + availability */
+  .contact-left { display:flex; flex-direction:column; gap:1.5rem; }
+
+  .avail-pill {
+    display:inline-flex; align-items:center; gap:.6rem;
+    background:rgba(6,182,212,.08); border:1px solid rgba(6,182,212,.22);
+    border-radius:999px; padding:.55rem 1.2rem;
+    font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent3);
+    width:fit-content;
+  }
+  .avail-pill .pulse-dot {
+    width:8px; height:8px; border-radius:50%; background:var(--accent3); flex-shrink:0;
+    animation:pulseDot 2s infinite;
+  }
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.55);}}
+
+  .contact-blurb {
+    font-size:1rem; color:var(--muted); line-height:1.8; max-width:340px;
+  }
+
+  .social-grid { display:flex; flex-direction:column; gap:.7rem; }
+  .s-pill {
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding:.65rem 1.2rem; border-radius:14px;
+    border:1.5px solid var(--border);
+    color:var(--muted); text-decoration:none;
+    font-size:.85rem; font-weight:700;
+    transition:all .25s; width:100%;
+  }
+  .s-pill:hover { border-color:var(--accent2); color:var(--accent2); background:rgba(168,85,247,.07); transform:translateX(4px); }
+  .s-pill .s-icon { font-size:1.1rem; }
+  .s-pill .s-label { flex:1; }
+  .s-pill .s-arrow { font-size:.8rem; opacity:.4; transition:opacity .2s; }
+  .s-pill:hover .s-arrow { opacity:1; }
+
+  /* Right: Form card */
+  .form-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:2.2rem;
+    position:relative; overflow:hidden;
+  }
+  .form-card::before {
+    content:''; position:absolute;
+    top:-80px; right:-80px;
+    width:240px; height:240px;
+    background:radial-gradient(circle,rgba(124,58,237,.14),transparent 70%);
+    pointer-events:none;
+  }
+  .form-card::after {
+    content:''; position:absolute;
+    bottom:-60px; left:-60px;
+    width:200px; height:200px;
+    background:radial-gradient(circle,rgba(6,182,212,.1),transparent 70%);
+    pointer-events:none;
+  }
+
+  .fields-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .field { display:flex; flex-direction:column; gap:.45rem; margin-bottom:1rem; }
+  .field label {
+    font-size:.72rem; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted);
+  }
+  .field input, .field textarea, .field select {
+    background:rgba(255,255,255,.05);
+    border:1.5px solid var(--border);
+    border-radius:12px;
+    padding:.85rem 1rem;
+    color:var(--text);
+    font-family:'Syne',sans-serif; font-size:.9rem;
+    outline:none; resize:vertical;
+    transition:border-color .25s, box-shadow .25s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    border-color:var(--accent2);
+    box-shadow:0 0 0 3px rgba(168,85,247,.1);
+  }
+  .field input::placeholder, .field textarea::placeholder { color:rgba(148,163,184,.35); }
+  .field select option { background:#0f0f1e; }
+
+  .char-count {
+    font-size:.7rem; color:var(--muted); text-align:right;
+    margin-top:.3rem; font-family:'Space Mono',monospace;
+  }
+
+  .btn-submit {
+    width:100%; padding:1rem;
+    border:none; border-radius:14px; cursor:pointer;
+    font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; letter-spacing:.06em;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;
+    box-shadow:0 0 24px rgba(124,58,237,.35);
+    transition:all .28s cubic-bezier(.34,1.56,.64,1);
+    display:flex; align-items:center; justify-content:center; gap:.6rem;
+    position:relative; overflow:hidden;
+  }
+  .btn-submit::before {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg,var(--accent2),var(--accent3));
+    opacity:0; transition:opacity .3s;
+  }
+  .btn-submit:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 40px rgba(124,58,237,.55); }
+  .btn-submit:hover::before { opacity:1; }
+  .btn-submit span { position:relative; z-index:1; }
+  .btn-submit:disabled { opacity:.65; cursor:not-allowed; transform:none !important; }
+
+  /* spinner */
+  .spinner {
+    width:18px; height:18px;
+    border:2px solid rgba(255,255,255,.3);
+    border-top-color:#fff; border-radius:50%;
+    animation:spin .8s linear infinite; display:none;
+    position:relative; z-index:1;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ── SUCCESS OVERLAY ── */
+  .success-overlay {
+    position:absolute; inset:0; border-radius:24px;
+    background:rgba(8,8,16,.97);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    text-align:center; padding:2.5rem;
+    opacity:0; pointer-events:none;
+    transition:opacity .45s ease;
+    z-index:10;
+  }
+  .success-overlay.show { opacity:1; pointer-events:all; }
+
+  .confetti-wrap { position:absolute; inset:0; overflow:hidden; pointer-events:none; border-radius:24px; }
+
+  .check-circle {
+    width:80px; height:80px; border-radius:50%;
+    background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(124,58,237,.15));
+    border:2px solid rgba(6,182,212,.35);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:1.4rem;
+    animation:popIn .5s cubic-bezier(.34,1.56,.64,1) .15s both;
+  }
+  @keyframes popIn{from{transform:scale(0);}to{transform:scale(1);}}
+
+  .check-svg { width:40px; height:40px; }
+  .check-path {
+    stroke:#06b6d4; stroke-width:3; fill:none;
+    stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:52; stroke-dashoffset:52;
+    animation:draw .6s ease .5s forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  .success-title {
+    font-size:1.5rem; font-weight:800; margin-bottom:.6rem;
+    background:linear-gradient(135deg,#fff,var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    animation:fadeUp .5s ease .55s both;
+  }
+  .success-msg {
+    color:var(--muted); font-size:.9rem; line-height:1.75; max-width:300px;
+    animation:fadeUp .5s ease .65s both;
+  }
+  .success-msg strong { color:var(--accent3); -webkit-text-fill-color:var(--accent3); }
+
+  .success-badge {
+    margin-top:1.2rem; display:inline-flex; align-items:center; gap:.5rem;
+    background:rgba(6,182,212,.08); border:1px solid rgba(6,182,212,.2);
+    border-radius:999px; padding:.4rem 1rem;
+    font-family:'Space Mono',monospace; font-size:.7rem; color:var(--accent3);
+    animation:fadeUp .5s ease .75s both;
+  }
+  .success-badge .bd { width:6px; height:6px; border-radius:50%; background:var(--accent3); animation:pulseDot 2s infinite; }
+
+  .btn-reset {
+    margin-top:1.6rem; padding:.6rem 1.5rem;
+    border:1.5px solid var(--border); border-radius:999px;
+    background:transparent; color:var(--muted);
+    font-family:'Syne',sans-serif; font-size:.82rem; font-weight:700; cursor:pointer;
+    transition:all .25s;
+    animation:fadeUp .5s ease .85s both;
+  }
+  .btn-reset:hover { border-color:var(--accent2); color:var(--accent2); }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+  /* ── ERROR TOAST ── */
+  .toast {
+    position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(80px);
+    background:#1a1a2e; border:1px solid rgba(239,68,68,.35); border-radius:14px;
+    padding:.75rem 1.4rem; display:flex; align-items:center; gap:.6rem;
+    font-size:.85rem; font-weight:700; color:#fca5a5;
+    box-shadow:0 8px 32px rgba(0,0,0,.5);
+    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+    z-index:9999;
+  }
+  .toast.show { transform:translateX(-50%) translateY(0); }
+
+  /* FOOTER */
+  footer{text-align:center;padding:2.5rem 3rem;border-top:1px solid var(--border);font-family:'Space Mono',monospace;font-size:.75rem;color:var(--muted);letter-spacing:.06em;position:relative;z-index:1;}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:820px){
+    .contact-layout{grid-template-columns:1fr;}
+    .fields-row{grid-template-columns:1fr;}
+    .form-card{padding:1.6rem;}
+  }
+  @media(max-width:700px){
+    nav{padding:1rem 1.2rem;}
+    .nav-links{display:none;}
+    .section-wrapper{padding:4rem 1.2rem;}
+    .hero{padding:7rem 1.2rem 4rem;}
+    .skills-header-wrap{padding:0 1.2rem 2rem;}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="logo">Shreeshail<span>.Sangolge</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div class="hero-avatar">
+      <img src="photo.jpeg" alt="Shreeshail Sangolge" onerror="this.style.background='linear-gradient(135deg,#7c3aed,#06b6d4)';this.src='';this.alt='SS';"/>
+    </div>
+    <div class="hero-badge"><span class="dot"></span> Available for hire</div>
+    <h1><span class="name-grad">Shreeshail</span></h1>
+    <div class="hero-sub">Learn · Build · Deliver</div>
+    <p class="hero-desc">A software developer who builds efficient, reliable full-stack web applications with a passion for clean code and great user experiences.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary">📄 My Resume</a>
+      <a href="#projects" class="btn btn-outline">🚀 My Projects</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="bar"></div></div>
+</section>
+
+<!-- WHAT I DO -->
+<section id="expertise">
+  <div class="section-wrapper">
+    <div class="reveal">
+      <div class="section-label">// What I do</div>
+      <h2 class="section-title">My Expertise</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card reveal">
+        <div class="card-icon">🧠</div>
+        <h3>Problem Solver</h3>
+        <p>I genuinely love the dopamine rush from solving problems. Competitive programmer with a Knight badge on Leetcode — top 5.9% globally.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">💻</div>
+        <h3>Full-Stack Developer</h3>
+        <p>3+ years of experience building full-stack personal and scalable professional projects across multiple tech stacks.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🎓</div>
+        <h3>Casual Mentor</h3>
+        <p>I occasionally mentor juniors, sharing insights to help them grow and overcome challenges in their tech journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="skills-header-wrap reveal">
+    <div class="section-label">// Technologies</div>
+    <h2 class="section-title">My Skills</h2>
+    <p style="color:var(--muted);font-size:.9rem;">Modern Applications | Modern Technologies</p>
+  </div>
+  <div class="skills-container">
+    <div class="skills-track" id="skillsTrack">
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#DD0031" d="M63.93 9.01L10.41 27.79l8.24 71.39L63.93 119l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#C3002F" d="M63.93 9.01v109.99l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#fff" d="M63.93 36.67L44.78 80.36h7.17l3.82-9.48h16.43l3.82 9.48h7.17L63.93 36.67zm0 13.5l5.94 14.75H57.99l5.94-14.75z"/></svg></div><span class="skill-name">Angular</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F8981D" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#EA2D2E" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/><path fill="#F8981D" d="M76.491 1.587S89.459 14.556 64.188 34.22c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"/></svg></div><span class="skill-name">Java</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.8 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8z"/></g></svg></div><span class="skill-name">React</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><rect width="128" height="128" rx="6" fill="#3178C6"/><path fill="#fff" d="M22.67 47h99.67v73.67H22.67zm78.06 9.52v5.12H84.5v46.23H72.99V61.64H56.72v-5a49.19 49.19 0 01.12-5.17C56.92 51 66.84 51 78.84 51h21.83l.06 5.52z"/></svg></div><span class="skill-name">TypeScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64z" fill="#38BDF8"/></svg></div><span class="skill-name">Tailwind</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433zm-20.888 51.95c-.741.918-7.592 8.595-19.65 8.595-17.073 0-28.906-13.193-28.906-29.144 0-16.015 11.498-29.397 28.97-29.397 6.976 0 13.14 2.502 17.644 6.558 1.39 1.247 4.138 3.994 5.695 7.59l-14.312 5.509c-.718-1.204-4.137-6.156-9.082-6.156-6.282 0-11.172 5.88-11.172 16.071 0 9.783 4.579 16.151 11.313 16.151 5.609 0 9.035-3.756 9.898-5.969l14.192 5.836a26.1 26.1 0 01-4.59 4.356z"/></svg></div><span class="skill-name">Django</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><linearGradient id="pyA" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyB" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyA)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.876-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyB)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg></div><span class="skill-name">Python</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#066DA5"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z"/></g><text x="64" y="80" font-family="Arial" font-size="22" font-weight="900" text-anchor="middle" fill="#fff">🐳</text></svg></div><span class="skill-name">Docker</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z" fill="#8CC84B"/><text x="64" y="80" font-family="Arial" font-size="26" font-weight="900" text-anchor="middle" fill="#fff">JS</text></svg></div><span class="skill-name">Node.js</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#439934" d="M109.481 10.691C97.845-1.052 81.799-3.028 66.16 2.024l.013.014C53.184 6.377 41.38 15.336 32.308 28.155c-7.264 10.261-12.194 22.289-14.245 34.744C15.771 78.5 17.555 93.17 24.248 104.36c8.148 13.548 21.699 20.83 36.394 20.83 5.073 0 10.229-.86 15.295-2.657 10.073-3.561 18.805-10.499 25.263-20.048 11.529-16.866 16.1-38.884 12.056-58.979-1.786-8.86-5.245-16.82-9.775-22.815z"/></svg></div><span class="skill-name">MongoDB</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 117.02l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.198l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.336-3.696h-3.708zm0-27.856v13.762h33.244l.277-3.092.628-6.978.329-3.692z"/></svg></div><span class="skill-name">HTML</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354H64.001v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.404-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.853.208-2.337 2.406-26.886H81.127z"/></svg></div><span class="skill-name">CSS</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F7DF1E" d="M1.408 1.408h125.184v125.185H1.408z"/><path d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 9.163-5.879 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-9.508 5.485-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"/></svg></div><span class="skill-name">JavaScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F05032" d="M124.742 58.378L69.625 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.685 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.001 47.934v24.375a9.677 9.677 0 012.56 1.799c3.778 3.777 3.778 9.9 0 13.679-3.779 3.778-9.904 3.778-13.679 0-3.778-3.779-3.778-9.902 0-13.679a9.716 9.716 0 013.168-2.099V47.412a9.716 9.716 0 01-3.168-2.099c-2.726-2.723-3.469-6.673-2.231-10.086L40.784 21.218 3.256 48.74c-3.172 3.172-3.172 8.32 0 11.497l55.126 55.114c3.173 3.174 8.32 3.174 11.499 0l54.861-54.861c3.175-3.176 3.175-8.323 0-11.112z" opacity=".8"/></svg></div><span class="skill-name">Git</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#6DB33F" d="M116.452 6.643c-16.244-7.056-33.898-3.02-45.88 9.568L55.4 32.653c-5.4 5.6-7.3 12.8-6 20l-14.9 15.5c-5.4 5.6-7.3 12.8-6 20L14.1 105c-3.5 3.6-3.4 9.4.2 12.9 3.6 3.5 9.4 3.4 12.9-.2l14.4-14.9c6.8 1.5 14.2-.3 19.6-5.8l15.5-16.1c7 1.2 14.4-.7 19.9-6.2l15.2-15.8c12.6-13 16.1-31.6 8.9-47.2l-4.2-5z"/></svg></div><span class="skill-name">Spring Boot</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433z"/><text x="64" y="80" font-family="Arial" font-size="20" font-weight="900" text-anchor="middle" fill="#fff">FastAPI</text></svg></div><span class="skill-name">FastAPI</span></div>
+      <!-- DUPLICATE for infinite loop -->
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#DD0031" d="M63.93 9.01L10.41 27.79l8.24 71.39L63.93 119l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#C3002F" d="M63.93 9.01v109.99l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#fff" d="M63.93 36.67L44.78 80.36h7.17l3.82-9.48h16.43l3.82 9.48h7.17L63.93 36.67zm0 13.5l5.94 14.75H57.99l5.94-14.75z"/></svg></div><span class="skill-name">Angular</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F8981D" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#EA2D2E" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/><path fill="#F8981D" d="M76.491 1.587S89.459 14.556 64.188 34.22c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"/></svg></div><span class="skill-name">Java</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.8 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8z"/></g></svg></div><span class="skill-name">React</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><rect width="128" height="128" rx="6" fill="#3178C6"/><path fill="#fff" d="M22.67 47h99.67v73.67H22.67zm78.06 9.52v5.12H84.5v46.23H72.99V61.64H56.72v-5a49.19 49.19 0 01.12-5.17C56.92 51 66.84 51 78.84 51h21.83l.06 5.52z"/></svg></div><span class="skill-name">TypeScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64z" fill="#38BDF8"/></svg></div><span class="skill-name">Tailwind</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433z"/><text x="64" y="80" font-family="Arial" font-size="18" font-weight="900" text-anchor="middle" fill="#6DB33F">Django</text></svg></div><span class="skill-name">Django</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><linearGradient id="pyC" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyD" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyC)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.876-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyD)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg></div><span class="skill-name">Python</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#066DA5"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z"/></g><text x="64" y="80" font-family="Arial" font-size="22" font-weight="900" text-anchor="middle" fill="#fff">🐳</text></svg></div><span class="skill-name">Docker</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z" fill="#8CC84B"/><text x="64" y="80" font-family="Arial" font-size="26" font-weight="900" text-anchor="middle" fill="#fff">JS</text></svg></div><span class="skill-name">Node.js</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#439934" d="M109.481 10.691C97.845-1.052 81.799-3.028 66.16 2.024l.013.014C53.184 6.377 41.38 15.336 32.308 28.155c-7.264 10.261-12.194 22.289-14.245 34.744C15.771 78.5 17.555 93.17 24.248 104.36c8.148 13.548 21.699 20.83 36.394 20.83 5.073 0 10.229-.86 15.295-2.657 10.073-3.561 18.805-10.499 25.263-20.048 11.529-16.866 16.1-38.884 12.056-58.979-1.786-8.86-5.245-16.82-9.775-22.815z"/></svg></div><span class="skill-name">MongoDB</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 117.02l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.198l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.336-3.696h-3.708zm0-27.856v13.762h33.244l.277-3.092.628-6.978.329-3.692z"/></svg></div><span class="skill-name">HTML</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354H64.001v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.404-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.853.208-2.337 2.406-26.886H81.127z"/></svg></div><span class="skill-name">CSS</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F7DF1E" d="M1.408 1.408h125.184v125.185H1.408z"/><path d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 9.163-5.879 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-9.508 5.485-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"/></svg></div><span class="skill-name">JavaScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F05032" d="M124.742 58.378L69.625 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.685 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.001 47.934v24.375a9.677 9.677 0 012.56 1.799c3.778 3.777 3.778 9.9 0 13.679-3.779 3.778-9.904 3.778-13.679 0-3.778-3.779-3.778-9.902 0-13.679a9.716 9.716 0 013.168-2.099V47.412a9.716 9.716 0 01-3.168-2.099c-2.726-2.723-3.469-6.673-2.231-10.086L40.784 21.218 3.256 48.74c-3.172 3.172-3.172 8.32 0 11.497l55.126 55.114c3.173 3.174 8.32 3.174 11.499 0l54.861-54.861c3.175-3.176 3.175-8.323 0-11.112z" opacity=".8"/></svg></div><span class="skill-name">Git</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#6DB33F" d="M116.452 6.643c-16.244-7.056-33.898-3.02-45.88 9.568L55.4 32.653c-5.4 5.6-7.3 12.8-6 20l-14.9 15.5c-5.4 5.6-7.3 12.8-6 20L14.1 105c-3.5 3.6-3.4 9.4.2 12.9 3.6 3.5 9.4 3.4 12.9-.2l14.4-14.9c6.8 1.5 14.2-.3 19.6-5.8l15.5-16.1c7 1.2 14.4-.7 19.9-6.2l15.2-15.8c12.6-13 16.1-31.6 8.9-47.2l-4.2-5z"/></svg></div><span class="skill-name">Spring Boot</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433z"/><text x="64" y="80" font-family="Arial" font-size="20" font-weight="900" text-anchor="middle" fill="#fff">FastAPI</text></svg></div><span class="skill-name">FastAPI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrapper">
+    <div class="reveal">
+      <div class="section-label">// Portfolio</div>
+      <h2 class="section-title">🧑🏽‍💻 Projects</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal" onclick="openModal('medworld')">
+        <div class="proj-thumb">🛍️
+          <div class="proj-overlay">
+            <a href="#" class="demo" onclick="event.stopPropagation()">🚀 Live Demo</a>
+            <a href="https://github.com/shreeshail66" class="code" onclick="event.stopPropagation()">💻 Code</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>Med World</h3>
+          <p>An e-commerce site for selling medicines with prescription upload and Razorpay payment gateway integration.</p>
+          <div class="proj-tags"><span class="tag">Angular</span><span class="tag">Spring Boot</span><span class="tag">Razorpay</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal" onclick="openModal('food')">
+        <div class="proj-thumb">🍔
+          <div class="proj-overlay">
+            <a href="#" class="demo" onclick="event.stopPropagation()">🚀 Live Demo</a>
+            <a href="https://github.com/shreeshail66" class="code" onclick="event.stopPropagation()">💻 Code</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>Food Redistribution Platform</h3>
+          <p>Connects food donors with those in need using a hashing-based location clustering algorithm and real-time notifications.</p>
+          <div class="proj-tags"><span class="tag">Django</span><span class="tag">Hashing</span><span class="tag">Real-time</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal" onclick="openModal('movie')">
+        <div class="proj-thumb">🎬
+          <div class="proj-overlay">
+            <a href="#" class="demo" onclick="event.stopPropagation()">🚀 Live Demo</a>
+            <a href="https://github.com/shreeshail66" class="code" onclick="event.stopPropagation()">💻 Code</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>Movie Ticket Reservation</h3>
+          <p>A ticket booking site built with Django and Ajax for reserving movie tickets, with a separate admin panel.</p>
+          <div class="proj-tags"><span class="tag">Django</span><span class="tag">Ajax</span><span class="tag">Admin Panel</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box reveal"><div class="num" data-target="4000">0</div><div class="label">Problems Solved</div></div>
+      <div class="stat-box reveal"><div class="num" data-target="20">0</div><div class="label">Projects Built</div></div>
+      <div class="stat-box reveal"><div class="num" data-target="5">0</div><div class="label">Hackathons</div></div>
+      <div class="stat-box reveal"><div class="num" data-target="3800">0</div><div class="label">LinkedIn Followers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closeModal(null,true)">✕</button>
+    <div class="modal-emoji" id="modal-emoji">🛍️</div>
+    <h3 id="modal-title">Project</h3>
+    <p id="modal-desc">Description here.</p>
+    <div class="modal-tags" id="modal-tags"></div>
+    <div class="modal-links" id="modal-links"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CONTACT — INTEGRATED
+═══════════════════════════════════════ -->
+<section id="contact">
+  <div class="section-wrapper">
+
+    <div style="text-align:center;" class="reveal">
+      <div class="section-label">// Say hello</div>
+      <h2 class="section-title">Get in Touch 👋</h2>
+      <p style="color:var(--muted);font-size:.95rem;max-width:480px;margin:0 auto;">Have a project in mind or just want to chat? Drop a message and I'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="contact-layout">
+
+      <!-- LEFT -->
+      <div class="contact-left reveal">
+        <div class="avail-pill">
+          <span class="pulse-dot"></span> Available for hire
+        </div>
+        <p class="contact-blurb">I'm open to freelance gigs, full-time roles, and interesting collaborations. Reach out via the form or find me on any of these platforms.</p>
+        <div class="social-grid">
+          <a href="https://www.linkedin.com/in/shreeshail-sangolge/" target="_blank" class="s-pill">
+            <span class="s-icon">💼</span><span class="s-label">LinkedIn</span><span class="s-arrow">↗</span>
+          </a>
+          <a href="https://github.com/shreeshail66?tab=repositories" target="_blank" class="s-pill">
+            <span class="s-icon">🐙</span><span class="s-label">GitHub</span><span class="s-arrow">↗</span>
+          </a>
+          <a href="#" class="s-pill">
+            <span class="s-icon">🐦</span><span class="s-label">Twitter</span><span class="s-arrow">↗</span>
+          </a>
+          <a href="#" class="s-pill">
+            <span class="s-icon">📸</span><span class="s-label">Instagram</span><span class="s-arrow">↗</span>
+          </a>
+          <a href="#" class="s-pill">
+            <span class="s-icon">▶️</span><span class="s-label">YouTube</span><span class="s-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="form-card reveal" id="form-card">
+
+        <div class="confetti-wrap" id="confetti-wrap"></div>
+
+        <form id="contact-form">
+          <input type="hidden" name="access_key" value="5e86c92c-36e7-42fd-9de4-898af4f25433"/>
+          <input type="hidden" name="subject" value="New Portfolio Contact"/>
+          <input type="checkbox" name="botcheck" style="display:none"/>
+
+          <div class="fields-row">
+            <div class="field">
+              <label for="inp-name">Your Name</label>
+              <input type="text" id="inp-name" name="name" placeholder="John Doe" required/>
+            </div>
+            <div class="field">
+              <label for="inp-email">Email Address</label>
+              <input type="email" id="inp-email" name="email" placeholder="john@email.com" required/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="inp-subject">I'm reaching out about…</label>
+            <select id="inp-subject" name="topic">
+              <option value="">Select a topic</option>
+              <option value="Freelance Project">💼 Freelance / Project</option>
+              <option value="Full-time Opportunity">🚀 Full-time Opportunity</option>
+              <option value="Collaboration">🤝 Collaboration</option>
+              <option value="Mentorship">🎓 Mentorship</option>
+              <option value="Just saying hi!">👋 Just saying hi!</option>
+              <option value="Other">💬 Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="inp-msg">Message</label>
+            <textarea id="inp-msg" name="message" rows="5" placeholder="Hi Shreeshail, I'd love to work with you on…" required maxlength="1000"></textarea>
+            <div class="char-count"><span id="char-count">0</span> / 1000</div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <div class="spinner" id="spinner"></div>
+            <span id="btn-text">✉️ Send Message</span>
+          </button>
+        </form>
+
+        <!-- SUCCESS OVERLAY -->
+        <div class="success-overlay" id="success-overlay">
+          <div class="check-circle">
+            <svg class="check-svg" viewBox="0 0 52 52">
+              <path class="check-path" d="M14 27 L22 35 L38 17"/>
+            </svg>
+          </div>
+          <div class="success-title">Message Sent! 🎉</div>
+          <p class="success-msg">
+            Thank you, <strong id="success-name">friend</strong>! Your message was delivered successfully. I'll get back to you within <strong>24 hours</strong>.
+          </p>
+          <div class="success-badge">
+            <span class="bd"></span> Delivered via Web3Forms
+          </div>
+          <button class="btn-reset" id="btn-reset">↩ Send another message</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>© 2025 Shreeshail.dev — Built with ☕ and late nights</footer>
+
+<!-- Error Toast -->
+<div class="toast" id="toast">
+  <span>⚠️</span>
+  <span id="toast-msg">Something went wrong. Please try again.</span>
+</div>
+
+<script>
+// ── PARTICLES ──────────────────────────────────────────────
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[],mouse={x:null,y:null};
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();
+window.addEventListener('resize',()=>{resize();initParticles();});
+window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+window.addEventListener('mouseleave',()=>{mouse.x=null;mouse.y=null;});
+class Particle{constructor(){this.reset();}reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.r=Math.random()*1.8+.4;this.vx=(Math.random()-.5)*.35;this.vy=(Math.random()-.5)*.35;this.alpha=Math.random()*.55+.1;const c=Math.random();if(c<.45)this.color='168,85,247';else if(c<.7)this.color='6,182,212';else this.color='226,232,240';}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.reset();if(mouse.x!==null){const dx=this.x-mouse.x,dy=this.y-mouse.y;const dist=Math.sqrt(dx*dx+dy*dy);if(dist<100){const force=(100-dist)/100;this.x+=(dx/dist)*force*1.8;this.y+=(dy/dist)*force*1.8;}}}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(${this.color},${this.alpha})`;ctx.fill();}}
+function initParticles(){const count=Math.floor((W*H)/9000);particles=Array.from({length:count},()=>new Particle());}
+initParticles();
+function connectParticles(){const max=120;for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;const dist=Math.sqrt(dx*dx+dy*dy);if(dist<max){const alpha=(1-dist/max)*.18;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(124,58,237,${alpha})`;ctx.lineWidth=.6;ctx.stroke();}}}}
+function loop(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});connectParticles();requestAnimationFrame(loop);}
+loop();
+
+// ── SCROLL REVEAL ─────────────────────────────────────────
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:.12});
+reveals.forEach(el=>obs.observe(el));
+
+// ── NAV ACTIVE ────────────────────────────────────────────
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});navLinks.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active');});});
+
+// ── COUNTER ANIMATION ─────────────────────────────────────
+const counters=document.querySelectorAll('.num[data-target]');
+const counterObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;const target=+el.dataset.target;const suffix=target>=1000?'+':'';let cur=0;const step=target/60;const tick=()=>{cur+=step;if(cur<target){el.textContent=Math.floor(cur).toLocaleString()+suffix;requestAnimationFrame(tick);}else{el.textContent=target.toLocaleString()+suffix;}};tick();counterObs.unobserve(el);}});},{threshold:.5});
+counters.forEach(c=>counterObs.observe(c));
+
+// ── PROJECT MODAL ─────────────────────────────────────────
+const projects={
+  medworld:{emoji:'🛍️',title:'Med World',desc:'A full-featured e-commerce platform for selling medicines online. Users can upload prescriptions, browse by categories, add to cart, and pay securely via Razorpay. Includes admin dashboard for managing inventory, orders, and users.',tags:['Angular','Spring Boot','Razorpay','MySQL','REST API'],demo:'#',code:'https://github.com/shreeshail66'},
+  food:{emoji:'🍔',title:'Food Redistribution Platform',desc:'A social-impact platform connecting food donors (restaurants, events, individuals) with NGOs and people in need. Uses a hashing-based geolocation clustering algorithm for optimal matching. Features real-time push notifications and an admin analytics dashboard.',tags:['Django','Python','Hashing Algo','WebSockets','PostgreSQL'],demo:'#',code:'https://github.com/shreeshail66'},
+  movie:{emoji:'🎬',title:'Movie Ticket Reservation',desc:'A complete movie ticket booking system where users can browse movies, select seats on an interactive seat map, and book tickets. Includes a separate admin panel for managing movies, shows, theatres, and bookings. Built with Ajax for smooth UX.',tags:['Django','Ajax','jQuery','SQLite','Admin Panel'],demo:'#',code:'https://github.com/shreeshail66'}
+};
+function openModal(key){
+  const p=projects[key];
+  document.getElementById('modal-emoji').textContent=p.emoji;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-desc').textContent=p.desc;
+  document.getElementById('modal-tags').innerHTML=p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('modal-links').innerHTML=`<a href="${p.demo}" class="btn btn-primary" style="font-size:.82rem;padding:.55rem 1.3rem;">🚀 Live Demo</a><a href="${p.code}" class="btn btn-outline" target="_blank" style="font-size:.82rem;padding:.55rem 1.3rem;">💻 View Code</a>`;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e,force){if(force||e.target===document.getElementById('modal-overlay')){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal(null,true);});
+
+// ── CHAR COUNT ────────────────────────────────────────────
+const msgTA=document.getElementById('inp-msg');
+const charCountEl=document.getElementById('char-count');
+msgTA.addEventListener('input',()=>{
+  const len=msgTA.value.length;
+  charCountEl.textContent=len;
+  charCountEl.style.color=len>900?'#f87171':len>700?'#fb923c':'var(--muted)';
+});
+
+// ── CONFETTI ──────────────────────────────────────────────
+const confStyle=document.createElement('style');
+confStyle.textContent=`@keyframes confFly{0%{opacity:0;transform:translateY(50px) scale(0) rotate(0deg);}40%{opacity:1;}100%{opacity:0;transform:translateY(-100px) scale(1) rotate(540deg) translateX(40px);}}`;
+document.head.appendChild(confStyle);
+
+function spawnConfetti(){
+  const wrap=document.getElementById('confetti-wrap');
+  wrap.innerHTML='';
+  const colors=['#7c3aed','#a855f7','#06b6d4','#f0abfc','#67e8f9','#c4b5fd','#fff','#fde68a'];
+  for(let i=0;i<55;i++){
+    const el=document.createElement('div');
+    el.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;width:${4+Math.random()*8}px;height:${4+Math.random()*8}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>.5?'50%':'2px'};opacity:0;animation:confFly ${0.7+Math.random()*1.2}s ease ${Math.random()*.5}s both;`;
+    wrap.appendChild(el);
+  }
+}
+
+// ── TOAST ─────────────────────────────────────────────────
+function showToast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toast-msg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+// ── FORM SUBMIT ──────────────────────────────────────────
+document.getElementById('contact-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const name=document.getElementById('inp-name').value.trim();
+  const email=document.getElementById('inp-email').value.trim();
+  const msg=document.getElementById('inp-msg').value.trim();
+  if(!name||!email||!msg){showToast('Please fill in all required fields!');return;}
+
+  const btn=document.getElementById('btn-submit');
+  const btnText=document.getElementById('btn-text');
+  const spinner=document.getElementById('spinner');
+  btn.disabled=true;
+  spinner.style.display='block';
+  btnText.textContent='Sending…';
+
+  try{
+    const formData=new FormData(this);
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:formData});
+    const data=await res.json();
+    if(data.success){
+      document.getElementById('success-name').textContent=name;
+      spawnConfetti();
+      document.getElementById('success-overlay').classList.add('show');
+      this.reset();
+      charCountEl.textContent='0';
+    }else{
+      throw new Error(data.message||'Failed');
+    }
+  }catch(err){
+    showToast('Oops! Something went wrong. Please try again.');
+  }finally{
+    btn.disabled=false;
+    spinner.style.display='none';
+    btnText.textContent='✉️ Send Message';
+  }
+});
+
+// ── RESET ─────────────────────────────────────────────────
+document.getElementById('btn-reset').addEventListener('click',()=>{
+  document.getElementById('success-overlay').classList.remove('show');
+  document.getElementById('confetti-wrap').innerHTML='';
+});
+</script>
+</body>
+</html>

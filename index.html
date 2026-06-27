@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shreeshail Sangolge · Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script src="app.js" defer></script>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="logo">Shreeshail<span>.Sangolge</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div class="hero-avatar">
+      <img src="photo.jpeg" alt="Shreeshail Sangolge" onerror="this.style.background='linear-gradient(135deg,#7c3aed,#06b6d4)';this.src='';this.alt='SS';"/>
+    </div>
+    <div class="hero-badge"><span class="dot"></span> Available for hire</div>
+    <h1><span class="name-grad">Shreeshail</span></h1>
+    <div class="hero-sub">Learn · Build · Deliver</div>
+    <p class="hero-desc">A software developer who builds efficient, reliable full-stack web applications with a passion for clean code and great user experiences.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary">📄 My Resume</a>
+      <a href="#projects" class="btn btn-outline">🚀 My Projects</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="bar"></div></div>
+</section>
+
+<!-- WHAT I DO -->
+<section id="expertise">
+  <div class="section-wrapper">
+    <div class="reveal">
+      <div class="section-label">// What I do</div>
+      <h2 class="section-title">My Expertise</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card reveal">
+        <div class="card-icon">🧠</div>
+        <h3>Problem Solver</h3>
+        <p>I genuinely love the dopamine rush from solving problems. Competitive programmer with a Knight badge on Leetcode — top 5.9% globally.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">💻</div>
+        <h3>Full-Stack Developer</h3>
+        <p>3+ years of experience building full-stack personal and scalable professional projects across multiple tech stacks.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🎓</div>
+        <h3>Casual Mentor</h3>
+        <p>I occasionally mentor juniors, sharing insights to help them grow and overcome challenges in their tech journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="skills-header-wrap reveal">
+    <div class="section-label">// Technologies</div>
+    <h2 class="section-title">My Skills</h2>
+    <p style="color:var(--muted);font-size:.9rem;">Modern Applications | Modern Technologies</p>
+  </div>
+  <div class="skills-container">
+    <div class="skills-track" id="skillsTrack">
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#DD0031" d="M63.93 9.01L10.41 27.79l8.24 71.39L63.93 119l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#C3002F" d="M63.93 9.01v109.99l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#fff" d="M63.93 36.67L44.78 80.36h7.17l3.82-9.48h16.43l3.82 9.48h7.17L63.93 36.67zm0 13.5l5.94 14.75H57.99l5.94-14.75z"/></svg></div><span class="skill-name">Angular</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F8981D" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#EA2D2E" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/><path fill="#F8981D" d="M76.491 1.587S89.459 14.556 64.188 34.22c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"/></svg></div><span class="skill-name">Java</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.8 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8z"/></g></svg></div><span class="skill-name">React</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><rect width="128" height="128" rx="6" fill="#3178C6"/><path fill="#fff" d="M22.67 47h99.67v73.67H22.67zm78.06 9.52v5.12H84.5v46.23H72.99V61.64H56.72v-5a49.19 49.19 0 01.12-5.17C56.92 51 66.84 51 78.84 51h21.83l.06 5.52z"/></svg></div><span class="skill-name">TypeScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64z" fill="#38BDF8"/></svg></div><span class="skill-name">Tailwind</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433zm-20.888 51.95c-.741.918-7.592 8.595-19.65 8.595-17.073 0-28.906-13.193-28.906-29.144 0-16.015 11.498-29.397 28.97-29.397 6.976 0 13.14 2.502 17.644 6.558 1.39 1.247 4.138 3.994 5.695 7.59l-14.312 5.509c-.718-1.204-4.137-6.156-9.082-6.156-6.282 0-11.172 5.88-11.172 16.071 0 9.783 4.579 16.151 11.313 16.151 5.609 0 9.035-3.756 9.898-5.969l14.192 5.836a26.1 26.1 0 01-4.59 4.356z"/></svg></div><span class="skill-name">Django</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><linearGradient id="pyA" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyB" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyA)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.876-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyB)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg></div><span class="skill-name">Python</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#066DA5"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z"/></g><text x="64" y="80" font-family="Arial" font-size="22" font-weight="900" text-anchor="middle" fill="#fff">🐳</text></svg></div><span class="skill-name">Docker</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z" fill="#8CC84B"/><text x="64" y="80" font-family="Arial" font-size="26" font-weight="900" text-anchor="middle" fill="#fff">JS</text></svg></div><span class="skill-name">Node.js</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#439934" d="M109.481 10.691C97.845-1.052 81.799-3.028 66.16 2.024l.013.014C53.184 6.377 41.38 15.336 32.308 28.155c-7.264 10.261-12.194 22.289-14.245 34.744C15.771 78.5 17.555 93.17 24.248 104.36c8.148 13.548 21.699 20.83 36.394 20.83 5.073 0 10.229-.86 15.295-2.657 10.073-3.561 18.805-10.499 25.263-20.048 11.529-16.866 16.1-38.884 12.056-58.979-1.786-8.86-5.245-16.82-9.775-22.815z"/></svg></div><span class="skill-name">MongoDB</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 117.02l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.198l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.336-3.696h-3.708zm0-27.856v13.762h33.244l.277-3.092.628-6.978.329-3.692z"/></svg></div><span class="skill-name">HTML</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354H64.001v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.404-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.853.208-2.337 2.406-26.886H81.127z"/></svg></div><span class="skill-name">CSS</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F7DF1E" d="M1.408 1.408h125.184v125.185H1.408z"/><path d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 9.163-5.879 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-9.508 5.485-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"/></svg></div><span class="skill-name">JavaScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F05032" d="M124.742 58.378L69.625 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.685 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.001 47.934v24.375a9.677 9.677 0 012.56 1.799c3.778 3.777 3.778 9.9 0 13.679-3.779 3.778-9.904 3.778-13.679 0-3.778-3.779-3.778-9.902 0-13.679a9.716 9.716 0 013.168-2.099V47.412a9.716 9.716 0 01-3.168-2.099c-2.726-2.723-3.469-6.673-2.231-10.086L40.784 21.218 3.256 48.74c-3.172 3.172-3.172 8.32 0 11.497l55.126 55.114c3.173 3.174 8.32 3.174 11.499 0l54.861-54.861c3.175-3.176 3.175-8.323 0-11.112z" opacity=".8"/></svg></div><span class="skill-name">Git</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#6DB33F" d="M116.452 6.643c-16.244-7.056-33.898-3.02-45.88 9.568L55.4 32.653c-5.4 5.6-7.3 12.8-6 20l-14.9 15.5c-5.4 5.6-7.3 12.8-6 20L14.1 105c-3.5 3.6-3.4 9.4.2 12.9 3.6 3.5 9.4 3.4 12.9-.2l14.4-14.9c6.8 1.5 14.2-.3 19.6-5.8l15.5-16.1c7 1.2 14.4-.7 19.9-6.2l15.2-15.8c12.6-13 16.1-31.6 8.9-47.2l-4.2-5z"/></svg></div><span class="skill-name">Spring Boot</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433z"/><text x="64" y="80" font-family="Arial" font-size="20" font-weight="900" text-anchor="middle" fill="#fff">FastAPI</text></svg></div><span class="skill-name">FastAPI</span></div>
+      <!-- DUPLICATE for infinite loop -->
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#DD0031" d="M63.93 9.01L10.41 27.79l8.24 71.39L63.93 119l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#C3002F" d="M63.93 9.01v109.99l45.28-19.82 8.24-71.39L63.93 9.01z"/><path fill="#fff" d="M63.93 36.67L44.78 80.36h7.17l3.82-9.48h16.43l3.82 9.48h7.17L63.93 36.67zm0 13.5l5.94 14.75H57.99l5.94-14.75z"/></svg></div><span class="skill-name">Angular</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F8981D" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#EA2D2E" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/><path fill="#F8981D" d="M76.491 1.587S89.459 14.556 64.188 34.22c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"/></svg></div><span class="skill-name">Java</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.8 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8z"/></g></svg></div><span class="skill-name">React</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><rect width="128" height="128" rx="6" fill="#3178C6"/><path fill="#fff" d="M22.67 47h99.67v73.67H22.67zm78.06 9.52v5.12H84.5v46.23H72.99V61.64H56.72v-5a49.19 49.19 0 01.12-5.17C56.92 51 66.84 51 78.84 51h21.83l.06 5.52z"/></svg></div><span class="skill-name">TypeScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64z" fill="#38BDF8"/></svg></div><span class="skill-name">Tailwind</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433z"/><text x="64" y="80" font-family="Arial" font-size="18" font-weight="900" text-anchor="middle" fill="#6DB33F">Django</text></svg></div><span class="skill-name">Django</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><linearGradient id="pyC" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyD" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyC)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.876-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyD)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg></div><span class="skill-name">Python</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><g fill="#066DA5"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z"/></g><text x="64" y="80" font-family="Arial" font-size="22" font-weight="900" text-anchor="middle" fill="#fff">🐳</text></svg></div><span class="skill-name">Docker</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.227 0L14.901 30.334C12.031 31.985 10 34.142 10 36.434V87.58c0 2.55 2.159 5.02 4.901 6.566l44.145 25.605c2.747 1.6 6.354 1.6 9.135 0l44.149-25.605c2.741-1.546 4.669-4.016 4.669-6.566V36.434c0-2.292-1.81-4.449-4.228-6.1z" fill="#8CC84B"/><text x="64" y="80" font-family="Arial" font-size="26" font-weight="900" text-anchor="middle" fill="#fff">JS</text></svg></div><span class="skill-name">Node.js</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#439934" d="M109.481 10.691C97.845-1.052 81.799-3.028 66.16 2.024l.013.014C53.184 6.377 41.38 15.336 32.308 28.155c-7.264 10.261-12.194 22.289-14.245 34.744C15.771 78.5 17.555 93.17 24.248 104.36c8.148 13.548 21.699 20.83 36.394 20.83 5.073 0 10.229-.86 15.295-2.657 10.073-3.561 18.805-10.499 25.263-20.048 11.529-16.866 16.1-38.884 12.056-58.979-1.786-8.86-5.245-16.82-9.775-22.815z"/></svg></div><span class="skill-name">MongoDB</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 117.02l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.198l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.336-3.696h-3.708zm0-27.856v13.762h33.244l.277-3.092.628-6.978.329-3.692z"/></svg></div><span class="skill-name">HTML</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354H64.001v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"/><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.404-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"/><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.853.208-2.337 2.406-26.886H81.127z"/></svg></div><span class="skill-name">CSS</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F7DF1E" d="M1.408 1.408h125.184v125.185H1.408z"/><path d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 9.163-5.879 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-9.508 5.485-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"/></svg></div><span class="skill-name">JavaScript</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#F05032" d="M124.742 58.378L69.625 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.685 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.001 47.934v24.375a9.677 9.677 0 012.56 1.799c3.778 3.777 3.778 9.9 0 13.679-3.779 3.778-9.904 3.778-13.679 0-3.778-3.779-3.778-9.902 0-13.679a9.716 9.716 0 013.168-2.099V47.412a9.716 9.716 0 01-3.168-2.099c-2.726-2.723-3.469-6.673-2.231-10.086L40.784 21.218 3.256 48.74c-3.172 3.172-3.172 8.32 0 11.497l55.126 55.114c3.173 3.174 8.32 3.174 11.499 0l54.861-54.861c3.175-3.176 3.175-8.323 0-11.112z" opacity=".8"/></svg></div><span class="skill-name">Git</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#6DB33F" d="M116.452 6.643c-16.244-7.056-33.898-3.02-45.88 9.568L55.4 32.653c-5.4 5.6-7.3 12.8-6 20l-14.9 15.5c-5.4 5.6-7.3 12.8-6 20L14.1 105c-3.5 3.6-3.4 9.4.2 12.9 3.6 3.5 9.4 3.4 12.9-.2l14.4-14.9c6.8 1.5 14.2-.3 19.6-5.8l15.5-16.1c7 1.2 14.4-.7 19.9-6.2l15.2-15.8c12.6-13 16.1-31.6 8.9-47.2l-4.2-5z"/></svg></div><span class="skill-name">Spring Boot</span></div>
+      <div class="skill-card"><div class="skill-icon"><svg viewBox="0 0 128 128"><path fill="#092E20" d="M116.077 38.395C109.422 14.857 88.142.124 64.108.009 28.605-.185 0 28.329 0 63.798c.062 35.429 28.757 64.19 64.187 64.19 29.455 0 54.233-19.927 61.832-47.42a64.06 64.06 0 002.096-16.74 64.05 64.05 0 00-12.038-25.433z"/><text x="64" y="80" font-family="Arial" font-size="20" font-weight="900" text-anchor="middle" fill="#fff">FastAPI</text></svg></div><span class="skill-name">FastAPI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrapper">
+    <div class="reveal">
+      <div class="section-label">// Portfolio</div>
+      <h2 class="section-title">🧑🏽‍💻 Projects</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal" onclick="openModal('collegechatbot')">
+        <div class="proj-thumb">🤖
+          <div class="proj-overlay">
+            <a href="https://github.com/shreeshail66/college_chatbot" class="code" target="_blank" onclick="event.stopPropagation()">💻 Code</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>College Chatbot</h3>
+          <p>An AI-powered chatbot that answers student queries on admissions, courses, fees, and schedules, cutting down manual support workload for college staff.</p>
+          <div class="proj-tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Flask</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal" onclick="openModal('financialtracker')">
+        <div class="proj-thumb">💰
+          <div class="proj-overlay">
+            <a href="https://github.com/shreeshail66/finance-tracker" class="code" target="_blank" onclick="event.stopPropagation()">💻 Code</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>Financial Tracker</h3>
+          <p>A full-stack personal finance tracker with secure login, expense tracking, monthly reports, interactive charts, budget alerts, and CSV export.</p>
+          <div class="proj-tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">JWT</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closeModal(null,true)">✕</button>
+    <div class="modal-emoji" id="modal-emoji">🛍️</div>
+    <h3 id="modal-title">Project</h3>
+    <p id="modal-desc">Description here.</p>
+    <div class="modal-tags" id="modal-tags"></div>
+    <div class="modal-links" id="modal-links"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CONTACT — INTEGRATED
+═══════════════════════════════════════ -->
+<section id="contact">
+  <div class="section-wrapper">
+
+    <div style="text-align:center;" class="reveal">
+      <div class="section-label">// Say hello</div>
+      <h2 class="section-title">Get in Touch 👋</h2>
+      <p style="color:var(--muted);font-size:.95rem;max-width:480px;margin:0 auto;">Have a project in mind or just want to chat? Drop a message and I'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="contact-layout">
+
+      <!-- LEFT -->
+      <div class="contact-left reveal">
+        <div class="avail-pill">
+          <span class="pulse-dot"></span> Available for hire
+        </div>
+        <p class="contact-blurb">I'm open to freelance gigs, full-time roles, and interesting collaborations. Reach out via the form or find me on any of these platforms.</p>
+        <div class="social-grid">
+          <a href="https://www.linkedin.com/in/shreeshail-sangolge/" target="_blank" class="s-pill">
+            <span class="s-icon">💼</span><span class="s-label">LinkedIn</span><span class="s-arrow">↗</span>
+          </a>
+          <a href="https://github.com/shreeshail66?tab=repositories" target="_blank" class="s-pill">
+            <span class="s-icon">🐙</span><span class="s-label">GitHub</span><span class="s-arrow">↗</span>
+          </a>
+          <a href="https://www.instagram.com/shreeshail_sangolge?utm_source=qr&igsh=MTRicG1yMnZjNm1jeQ%3D%3D" class="s-pill">
+            <span class="s-icon">📸</span><span class="s-label">Instagram</span><span class="s-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="form-card reveal" id="form-card">
+
+        <div class="confetti-wrap" id="confetti-wrap"></div>
+
+        <form id="contact-form">
+          <input type="hidden" name="access_key" value="5e86c92c-36e7-42fd-9de4-898af4f25433"/>
+          <input type="hidden" name="subject" value="New Portfolio Contact"/>
+          <input type="checkbox" name="botcheck" style="display:none"/>
+
+          <div class="fields-row">
+            <div class="field">
+              <label for="inp-name">Your Name</label>
+              <input type="text" id="inp-name" name="name" placeholder="John Doe" required/>
+            </div>
+            <div class="field">
+              <label for="inp-email">Email Address</label>
+              <input type="email" id="inp-email" name="email" placeholder="john@email.com" required/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="inp-subject">I'm reaching out about…</label>
+            <select id="inp-subject" name="topic">
+              <option value="">Select a topic</option>
+              <option value="Freelance Project">💼 Freelance / Project</option>
+              <option value="Full-time Opportunity">🚀 Full-time Opportunity</option>
+              <option value="Collaboration">🤝 Collaboration</option>
+              <option value="Mentorship">🎓 Mentorship</option>
+              <option value="Just saying hi!">👋 Just saying hi!</option>
+              <option value="Other">💬 Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="inp-msg">Message</label>
+            <textarea id="inp-msg" name="message" rows="5" placeholder="Hi Shreeshail, I'd love to work with you on…" required maxlength="1000"></textarea>
+            <div class="char-count"><span id="char-count">0</span> / 1000</div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <div class="spinner" id="spinner"></div>
+            <span id="btn-text">✉️ Send Message</span>
+          </button>
+        </form>
+
+        <!-- SUCCESS OVERLAY -->
+        <div class="success-overlay" id="success-overlay">
+          <div class="check-circle">
+            <svg class="check-svg" viewBox="0 0 52 52">
+              <path class="check-path" d="M14 27 L22 35 L38 17"/>
+            </svg>
+          </div>
+          <div class="success-title">Message Sent! 🎉</div>
+          <p class="success-msg">
+            Thank you, <strong id="success-name">friend</strong>! Your message was delivered successfully. I'll get back to you within <strong>24 hours</strong>.
+          </p>
+          <div class="success-badge">
+            <span class="bd"></span> Delivered via Web3Forms
+          </div>
+          <button class="btn-reset" id="btn-reset">↩ Send another message</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>© 2025 Shreeshail.dev — Built with ☕ and late nights</footer>
+
+<!-- Error Toast -->
+<div class="toast" id="toast">
+  <span>⚠️</span>
+  <span id="toast-msg">Something went wrong. Please try again.</span>
+</div>
+</body>

@@ -31,7 +31,7 @@ counters.forEach(c=>counterObs.observe(c));
 // ── PROJECT MODAL ─────────────────────────────────────────
 const projects={
   collegechatbot:{emoji:'🤖',title:'College Chatbot',desc:'An AI-powered chatbot built to help students get instant answers about admissions, courses, fees, schedules, and common FAQs. Uses natural language processing to understand student queries and respond conversationally, reducing repetitive manual support work for college staff.',tags:['Python','NLP','Flask','Chatbot','Machine Learning'],code:'https://github.com/shreeshail66/college_chatbot'},
-  financialtracker:{emoji:'💰',title:'Financial Tracker',desc:'A full-stack personal finance tracker with secure JWT-based login, expense tracking, monthly spending reports, interactive category and trend charts, budget alerts that flag overspending, and one-click CSV export of all expense records.',tags:['Node.js','Express','JWT','Chart.js','REST API'],code:'https://github.com/shreeshail66/financial_tracker'}
+  financialtracker:{emoji:'💰',title:'Financial Tracker',desc:'A full-stack personal finance tracker with secure JWT-based login, expense tracking, monthly spending reports, interactive category and trend charts, budget alerts that flag overspending, and one-click CSV export of all expense records.',tags:['Node.js','Express','JWT','Chart.js','REST API'],code:'https://github.com/shreeshail66/finance_tracker'}
 };
 function openModal(key){
   const p=projects[key];

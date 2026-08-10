@@ -93,6 +93,7 @@
   .proj-card:hover .proj-overlay{opacity:1;}
   .proj-overlay a{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;transition:.2s;}
   .proj-overlay a.code{background:var(--accent2);color:#fff;border:1.5px solid transparent;}
+  .proj-overlay a.demo{background:transparent;color:#fff;border:1.5px solid var(--accent3);}
   .proj-overlay a:hover{transform:scale(1.06);}
   .proj-body{padding:1.4rem;}
   .proj-body h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;}

@@ -73,7 +73,7 @@
   .skills-container::before,.skills-container::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
   .skills-container::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
   .skills-container::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
-  .skills-track{display:flex;gap:1.2rem;width:max-content;animation:scrollLeft 35s linear infinite;}
+  .skills-track{display:flex;gap:1.2rem;width:max-content;margin-top:1rem;animation:scrollLeft 35s linear infinite;}
   @keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
   .skill-card{min-width:120px;padding:1.4rem 1rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;gap:.7rem;cursor:default;transition:border-color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden;}
   .skill-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(6,182,212,.12),transparent 70%);opacity:0;transition:opacity .3s;}
